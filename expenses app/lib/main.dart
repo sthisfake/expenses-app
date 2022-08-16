@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:second_app/transaction.dart';
+import 'package:second_app/widgets/new_transaction.dart';
+import 'package:second_app/widgets/transaction_lis.dart';
 
 void main() => runApp(MyApp());
 
@@ -14,11 +15,6 @@ class MyApp extends StatelessWidget {
 }
 
 class MyHomePage extends StatelessWidget {
-  List<Transaction> transaction = [
-    Transaction("money for nothing", 22),
-    Transaction("ice cream", 7)
-  ];
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -26,7 +22,7 @@ class MyHomePage extends StatelessWidget {
         title: Text('Second App'),
       ),
       body: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceAround,
+        mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: <Widget>[
           Container(
@@ -37,36 +33,7 @@ class MyHomePage extends StatelessWidget {
               elevation: 5,
             ),
           ),
-          Column(
-            children: transaction.map((sth) {
-              return Card(
-                child :Row(
-                  children:<Widget> [
-                    Container(
-                      margin: EdgeInsets.symmetric(
-                        vertical: 10,
-                        horizontal: 15 ,
-                      ),
-                      decoration: BoxDecoration(
-                        border: Border.all(
-                          color: Colors.blue ,
-                          width: 1 ,
-                        )
-                      ),
-                      padding: EdgeInsets.all(10),
-                      child: Text(
-                        sth.price.toString()
-                      ),
-                    ),
-                    Column(children: <Widget> [
-                      Text(sth.title.toString()),
-                      Text(sth.date.toString())
-                    ],)
-                  ]
-                  ,)
-              );
-            }).toList(),
-          )
+
         ],
       ),
     );

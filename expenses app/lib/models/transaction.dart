@@ -5,7 +5,7 @@ class Transaction {
   int? id ;
   String? title ;
   double? price ;
-  DateTime? date;
+  DateTime date = DateTime.now() ;
 
   Transaction(String title , double price) {
     this.title = title ;
