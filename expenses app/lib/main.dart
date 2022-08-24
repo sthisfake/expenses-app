@@ -3,6 +3,7 @@ import 'package:second_app/widgets/new_transaction.dart';
 import 'package:second_app/widgets/transaction_lis.dart';
 import './models/transaction.dart';
 import 'widgets/transaction_lis.dart';
+import './widgets/chart.dart';
 
 void main() => runApp(MyApp());
 
@@ -26,9 +27,20 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
 
     final List<Transaction> _UserTransactions = [
-    Transaction('sth', 23.6),
-    Transaction("gsdgs", 56.6),
+    // Transaction('sth', 23.6),
+    // Transaction("gsdgs", 56.6),
   ];
+
+  List<Transaction> get _recentTransactions {
+    return _UserTransactions.where((tx) {
+      return tx.date.isAfter(
+        DateTime.now().subtract(
+        Duration(days: 7),
+      ),
+      );
+    }).toList();
+  }
+  
 
   void _addTransaction(String title, double amount) {
     final neTx = Transaction(title, amount);
@@ -65,14 +77,7 @@ class _MyHomePageState extends State<MyHomePage> {
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: <Widget>[
-            Container(
-              width: double.infinity,
-              child: Card(
-                color: Colors.blue,
-                child: Text('CHART'),
-                elevation: 5,
-              ),
-            ),
+            Chart(_recentTransactions),
             TransactionList(_UserTransactions)
           ],
         ),
