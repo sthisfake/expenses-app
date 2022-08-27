@@ -42,8 +42,8 @@ class _MyHomePageState extends State<MyHomePage> {
   }
   
 
-  void _addTransaction(String title, double amount) {
-    final neTx = Transaction(title, amount);
+  void _addTransaction(String title, double amount , DateTime choosenDate) {
+    final neTx = Transaction(title, amount , choosenDate);
     
 
     setState(() {

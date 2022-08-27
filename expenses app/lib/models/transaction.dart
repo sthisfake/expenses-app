@@ -7,11 +7,11 @@ class Transaction {
   double? price ;
   DateTime date = DateTime.now() ;
 
-  Transaction(String title , double price) {
+  Transaction(String title , double price , DateTime choosenDate) {
     this.title = title ;
     this.price = price ;
     this.id = counter ;
-    this.date = DateTime.now();
+    this.date = choosenDate;
     counter = counter + 1;
   } 
 

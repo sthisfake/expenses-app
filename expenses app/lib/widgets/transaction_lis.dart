@@ -70,6 +70,28 @@ class TransactionList extends StatelessWidget {
                         ),
                       ],
                       crossAxisAlignment: CrossAxisAlignment.start,
+                    ),
+                    Container(
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.end,
+                        children: <Widget>[
+                            FlatButton(
+                              child: Icon(Icons.delete),
+                              onPressed: () {},
+                            ),
+                        ],
+                      ),
+                    ),
+                                    Container(
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.end,
+                        children: <Widget>[
+                            FlatButton(
+                              child: Icon(Icons.delete),
+                              onPressed: () {},
+                            ),
+                        ],
+                      ),
                     )
                   ],
                 ));
